@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Container, Box, Typography, FormControl, Select, MenuItem, Paper } from '@mui/material';
+
 
 function AirfieldDB() {
     const [selectedAirfield, setSelectedAirfield] = useState(null);
@@ -18,25 +20,34 @@ function AirfieldDB() {
     };
 
     return (
-        <div>
-            <h1>Airfield Database</h1>
-            <select defaultValue="" onChange={handleDropdownChange}>
-                <option value="" disabled>Select an Airfield</option>
+        <Container>
+          <Box display="flex" flexDirection="column" alignItems="center" mt={5}>
+            <Typography variant="h4" gutterBottom>
+              Airfield Database
+            </Typography>
+    
+            <FormControl variant="outlined">
+              <Select defaultValue="" onChange={handleDropdownChange}>
+                <MenuItem value="" disabled>
+                  Select an Airfield
+                </MenuItem>
                 {airfields.map((airfield, index) => (
-                    <option key={index} value={airfield.id}>
-                        {airfield.name}
-                    </option>
+                  <MenuItem key={index} value={airfield.id}>
+                    {airfield.name}
+                  </MenuItem>
                 ))}
-            </select>
-
+              </Select>
+            </FormControl>
+    
             {selectedAirfield && (
-                <div>
-                    <p>You have selected: {selectedAirfield.name}</p>
-                    <p>Information: {selectedAirfield.info}</p>
-                </div>
+              <Paper elevation={3} style={{ marginTop: '20px', padding: '20px' }}>
+                <Typography variant="h6">You have selected: {selectedAirfield.name}</Typography>
+                <Typography variant="body1">Information: {selectedAirfield.info}</Typography>
+              </Paper>
             )}
-        </div>
-    );
+          </Box>
+        </Container>
+      );
 }
 
 export default AirfieldDB;
