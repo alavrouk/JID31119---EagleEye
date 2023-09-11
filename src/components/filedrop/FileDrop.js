@@ -1,7 +1,7 @@
 import React from 'react';
 
 function FileDrop() {
-    return <div>File Drop</div>
+    return <div> File drop </div>
 }
 
 export default FileDrop
