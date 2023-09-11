@@ -1,0 +1,43 @@
+name: cicd-trigger
+
+# Specifies the events that trigger the workflow
+on:
+  push:
+    branches:
+      - main # Replace with your primary branch name if not 'main'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks out our repository
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      # Sets up Node.js on the agent
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      # Cache dependencies to speed up workflow
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.OS }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+
+      # Install project dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Perform a basic security audit with npm
+      - name: Security Audit
+        run: npm audit --audit-level=high
+
+      # Run unit tests
+      - name: Run Unit Tests
+        run: npm test
+
+      ##############
+      # Add new Tests or Stages here
