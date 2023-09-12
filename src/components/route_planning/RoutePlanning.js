@@ -1,8 +1,8 @@
 import React from 'react';
-import KeplerMap from './kepler_components/KeplerMap'
+import Map from './map_components/Map'
 
 function RoutePlanning() {
-    return <KeplerMap />
+    return <Map />
 }
 
 export default RoutePlanning
