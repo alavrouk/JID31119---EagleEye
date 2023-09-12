@@ -1,3 +1,13 @@
+# Version 0.1.0
+### New Features
+- Added Dropdown menu for Airfields
+- Added Map component for route planning
+- Created centralized dashboard for flight stats
+### Bug Fixes
+- Refactored Artifact code to ensure variables were properly tracked across Dashboard tabs 
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
