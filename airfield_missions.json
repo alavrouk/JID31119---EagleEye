@@ -1,0 +1,22 @@
+[
+    {
+        "origin": "ATL",
+        "destination": "SEA"
+    },
+    {
+        "origin": "JFK",
+        "destination": "JFK"
+    },
+    {
+        "origin": "BOS",
+        "destination": "BOS"
+    },
+    {
+        "origin": "MIA",
+        "destination": "SFO"
+    },
+    {
+        "origin": "BOS",
+        "destination": "ATL"
+    }
+]
