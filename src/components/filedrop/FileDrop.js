@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useDropzone } from "react-dropzone"
+import Button from '@mui/material/Button';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import fileIcon from '../../assets/icons/fileIcon.svg'
 import './styles/fileDrop.css'
 
@@ -81,8 +83,10 @@ function FileDrop() {
                         ))}
                     </div>
                 </div >
+                <div className='file-upload-button-container'>
+                    <Button variant="contained" startIcon={<CloudUploadIcon />}>Upload files</Button>
+                </div>
             </div>
-            <button className='file-upload-button'>Upload</button>
         </>
     )
 }
