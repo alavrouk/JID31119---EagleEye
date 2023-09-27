@@ -1,27 +1,44 @@
 import json
 import random
 
-iata_codes = ["ATL", "LAX", "ORD", "DFW", "DEN", "JFK", "SFO", "SEA", "MIA", "BOS"]
+# Mapping of IATA airport codes to their coordinates (latitude, longitude)
+airport_coordinates = {
+    "ATL": (33.6407, -84.4277),
+    "LAX": (33.9428, -118.4085),
+    "ORD": (41.9742, -87.9073),
+    "DFW": (32.8968, -97.0381),
+    "DEN": (39.8561, -104.6737),
+    "JFK": (40.6413, -73.7781),
+    "SFO": (37.7749, -122.4194),
+    "SEA": (47.4502, -122.3088),
+    "MIA": (25.7617, -80.1918),
+    "BOS": (42.3601, -71.0589)
+}
 
 def generate_iata_code():
-    """Generate a random IATA airport code from the list."""
-    return random.choice(iata_codes)
+    return random.choice(list(airport_coordinates.keys()))
 
-def generate_airfield_mission_with_iata(num_entries=1):
-    """Generate test data for airfield missions using IATA codes."""
+def generate_airfield_mission_with_coords(num_entries=1):
+    """Generate test data for airfield missions using IATA codes and coordinates."""
     missions = []
     for _ in range(num_entries):
+        origin = generate_iata_code()
+        destination = generate_iata_code()
         mission = {
-            "origin": generate_iata_code(),
-            "destination": generate_iata_code(),
+            "origin": origin,
+            "origin_coordinates": airport_coordinates[origin],
+            "destination": destination,
+            "destination_coordinates": airport_coordinates[destination],
         }
         missions.append(mission)
     return missions
 
-# Generate a sample of 5 airfield missions with IATA codes for demonstration
-sample_missions_iata = generate_airfield_mission_with_iata(5)
+# Generating test data for airfield missions using IATA codes and coordinates
+missions_data = generate_airfield_mission_with_coords(5)
 
-file_path = "airfield_missions.json"
+# Save the generated test data to a JSON file
+test_data_file_path = "airfield_missions_data.json"
+with open(test_data_file_path, 'w') as file:
+    json.dump(missions_data, file, indent=4)
 
-with open(file_path, 'w') as file:
-    json.dump(sample_missions_iata, file, indent=4)
+test_data_file_path
