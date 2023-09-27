@@ -1,0 +1,27 @@
+[
+    {
+        "id": "A",
+        "name": "Airfield A",
+        "info": "This is airfield A."
+    },
+    {
+        "id": "B",
+        "name": "Airfield B",
+        "info": "This is airfield B."
+    },
+    {
+        "id": "C",
+        "name": "Airfield C",
+        "info": "This is airfield C."
+    },
+    {
+        "id": "D",
+        "name": "Airfield D",
+        "info": "This is airfield D."
+    },
+    {
+        "id": "E",
+        "name": "Airfield E",
+        "info": "This is airfield E."
+    }
+]
