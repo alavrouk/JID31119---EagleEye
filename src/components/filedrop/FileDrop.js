@@ -39,6 +39,13 @@ function FileDrop() {
         })
     }
 
+    const clearUploadedFiles = () => {
+        uploadedFiles.forEach((file) => {
+            URL.revokeObjectURL(file.preview);
+        }); 
+        setUploadedFiles([]);
+    };
+
     return (
         <>
             <div className='dropzone-container'>
@@ -84,7 +91,11 @@ function FileDrop() {
                     </div>
                 </div >
                 <div className='file-upload-button-container'>
-                    <Button variant="contained" startIcon={<CloudUploadIcon />}>Upload files</Button>
+                    <Button 
+                        variant="contained" 
+                        startIcon={<CloudUploadIcon />} 
+                        onClick={clearUploadedFiles}
+                        > Upload files</Button>
                 </div>
             </div>
         </>
