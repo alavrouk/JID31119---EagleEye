@@ -3,7 +3,7 @@ name: Build Docker Image
 on:
   push:
     branches:
-      - '**' # This will run the action on any branch push
+      - 'main' # This will run the action on any branch push
 
 jobs:
   build:
