@@ -33,4 +33,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/${{ github.repository_owner }}/NTMRE:${{ steps.prep.outputs.branch }}
+        tags: ghcr.io/${{ github.repository_owner }}/ntmre:${{ steps.prep.outputs.branch }}
