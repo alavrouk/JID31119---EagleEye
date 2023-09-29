@@ -33,4 +33,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/${{ github.repository_owner }}/JID31119---EagleEye/test:${{ steps.prep.outputs.branch }}
+        tags: ghcr.io/${{ github.repository_owner }}/jid31119---eagleeye/test:${{ steps.prep.outputs.branch }}
