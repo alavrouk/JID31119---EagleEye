@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main # Replace with your primary branch name if not 'main'
-
+      
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
