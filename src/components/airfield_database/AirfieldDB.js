@@ -4,7 +4,9 @@ import airfields from './airfields.json';
 
 
 function AirfieldDB() {
-  const [selectedAirfield, setSelectedAirfield] = useState(null);
+  // Initialize with Airfield A as the default selected airfield
+  const defaultAirfield = airfields.find(airfield => airfield.name === "Airfield A") || null;
+  const [selectedAirfield, setSelectedAirfield] = useState(defaultAirfield);
 
   const handleDropdownChange = (e) => {
     const selectedId = e.target.value;
@@ -20,9 +22,10 @@ function AirfieldDB() {
         </Typography>
 
         <FormControl variant="outlined">
-          <Select defaultValue="" onChange={handleDropdownChange}>
+          {/* Set the Select's value to the ID of the selectedAirfield */}
+          <Select value={selectedAirfield ? selectedAirfield.id : ""} onChange={handleDropdownChange}>
             <MenuItem value="" disabled>
-              Select an Airfield
+              Select your database
             </MenuItem>
             {airfields.map((airfield, index) => (
               <MenuItem key={index} value={airfield.id}>
