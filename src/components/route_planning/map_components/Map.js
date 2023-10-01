@@ -1,5 +1,5 @@
 import React from "react";
-import { ComposableMap, Geographies, Geography, Line, Marker} from "react-simple-maps";
+import { ComposableMap, Geographies, Geography, Line, Marker, ZoomableGroup } from "react-simple-maps";
 import { Card, CardContent, CardHeader, Grid, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 
 const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/united-states/us-albers-counties.json";
@@ -33,24 +33,30 @@ export default function MapChart() {
   };
 
   return (
-    <Grid container spacing={3} style={{ marginTop: '1%' }}>
-        {/* Map Card */}
-        <Grid item xs={8}> {/* or adjust the grid size as required */}
-            <Card>
-                <CardHeader title="Route Planning" />
-                <CardContent>
-                  <ComposableMap projection="geoAlbersUsa">
-                        <Geographies geography={geoUrl}>
-                          {({ geographies }) =>
-                            geographies.map((geo) => (
-                              <Geography
-                                key={geo.rsmKey}
-                                geography={geo}
-                                onClick={() => handleMapClick(geo)}
-                              />
-                            ))
-                          }
-                        </Geographies>
+      <Grid container spacing={3} style={{ marginTop: '1%' }}>
+          {/* Map Card */}
+          <Grid item xs={8}> {/* or adjust the grid size as required */}
+              <Card>
+                  <CardHeader title="Route Planning" />
+                  <CardContent>
+                    <ComposableMap projection="geoAlbersUsa">
+                      <ZoomableGroup>
+                          <Geographies geography={geoUrl}>
+                            {({ geographies }) =>
+                              geographies.map((geo) => (
+                                <Geography
+                                  key={geo.rsmKey}
+                                  geography={geo}
+                                  onClick={() => handleMapClick(geo)}
+                                  style={{
+                                    default: { outline: 'none' },
+                                    hover: { outline: 'none' },
+                                    pressed: { outline: 'none' },
+                                  }}
+                                />
+                              ))
+                            }
+                          </Geographies>
                         
                         {startPoint && endPoint && (
                           <Line
@@ -76,7 +82,8 @@ export default function MapChart() {
                               {marker.name}
                             </text>
                           </Marker>
-                        ))}
+                        ))}            
+                    </ZoomableGroup>
                     </ComposableMap>
                 </CardContent>
             </Card>
@@ -118,12 +125,3 @@ export default function MapChart() {
     </Grid>
 );
 }
-
-//   return (
-//     <Card variant="outlined" style={{ width: '70%', margin: 'auto'}}> 
-//         <CardContent>
-
-//       </CardContent>
-//     </Card>
-//   );
-// }
