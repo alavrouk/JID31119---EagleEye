@@ -1,27 +1,47 @@
 [
     {
         "id": "A",
-        "name": "Airfield A",
-        "info": "This is airfield A."
+        "name": "Joint Base Andrews",
+        "info": "This is airfield A.",
+        "iden": "ADW",
+        "tzone": "UTC -4",
+        "location": "Washington, D.C.",
+        "cor": "38-48-38.9720N 076-52-01.3670W"
     },
     {
         "id": "B",
-        "name": "Airfield B",
-        "info": "This is airfield B."
+        "name": "Randolph Air Force Base",
+        "info": "This is airfield B.",
+        "iden": "RND",
+        "tzone": "UTC -5",
+        "location": "Universal City, Texas",
+        "cor": "29-31-44.0630N 098-16-40.9100W"
     },
     {
         "id": "C",
-        "name": "Airfield C",
-        "info": "This is airfield C."
+        "name": "Joint Base Langley-Eustis",
+        "info": "This is airfield C.",
+        "iden": "LFI",
+        "tzone": "UTC -4",
+        "location": "Hampton, VA",
+        "cor": "37-04-58.3900N 076-21-37.9400W"
     },
     {
         "id": "D",
-        "name": "Airfield D",
-        "info": "This is airfield D."
+        "name": "Eglin Air Force Base",
+        "info": "This is airfield D.",
+        "iden": "VPS",
+        "tzone": "UTC -5",
+        "location": "Destin-Fort Walton Beach, Florida",
+        "cor": "30-28-59.5899N 086-31-33.7596W"
     },
     {
         "id": "E",
-        "name": "Airfield E",
-        "info": "This is airfield E."
+        "name": "Nellis Air Force Base ",
+        "info": "This is airfield E.",
+        "iden": "LSV",
+        "tzone": "UTC -7",
+        "location": "Las Vegas, Nevada",
+        "cor": "36-14-10.3200N 115-02-03.3200W"
     }
 ]

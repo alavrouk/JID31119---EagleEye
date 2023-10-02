@@ -37,8 +37,11 @@ function AirfieldDB() {
 
         {selectedAirfield && (
           <Paper elevation={3} style={{ marginTop: '20px', padding: '20px' }}>
-            <Typography variant="h6">You have selected: {selectedAirfield.name}</Typography>
-            <Typography variant="body1">Information: {selectedAirfield.info}</Typography>
+            <Typography variant="h6">Base: {selectedAirfield.name}</Typography>
+            <Typography variant="body1">FAA Identifier: {selectedAirfield.iden}</Typography>
+            <Typography variant="body1">Time Zone: {selectedAirfield.tzone}</Typography>
+            <Typography variant="body1">Location: {selectedAirfield.location}</Typography>
+            <Typography variant="body1">Corrdinates (Lat/Long): {selectedAirfield.cor}</Typography>
           </Paper>
         )}
       </Box>
