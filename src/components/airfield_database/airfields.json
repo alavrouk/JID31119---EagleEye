@@ -5,8 +5,19 @@
         "info": "This is airfield A.",
         "iden": "ADW",
         "tzone": "UTC -4",
-        "location": "Washington, D.C.",
-        "cor": "38-48-38.9720N 076-52-01.3670W"
+        "location": "Camp Springs Maryland",
+        "cor": "38-48-38.9720N 076-52-01.3670W",
+        "size": "~5,800 acres",
+
+        "r1": "1R/19L",
+        "r1Surface": "asphalt/concrete/grooved",
+        "r1Dim": "9756 x 150 ft. / 2974 x 46 m",
+
+        "r2": "1L/19R",
+        "r2Surface": "concrete/grooved",
+        "r2Dim": "9318 x 200 ft. / 2840 x 61 m",
+
+        "image": "images/jointBaseAndrews.png"
     },
     {
         "id": "B",
@@ -15,7 +26,18 @@
         "iden": "RND",
         "tzone": "UTC -5",
         "location": "Universal City, Texas",
-        "cor": "29-31-44.0630N 098-16-40.9100W"
+        "cor": "29-31-44.0630N 098-16-40.9100W",
+        "size": "~2,300 acres",
+
+        "r1": "15L/33R",
+        "r1Surface": "concrete",
+        "r1Dim": "8351 x 200 ft. / 2545 x 61 m",
+
+        "r2": "15R/33L",
+        "r2Surface": "PEM",
+        "r2Dim": "8352 x 200 ft. / 2546 x 61 m",
+
+        "image": "images/randolphAFB.png"
     },
     {
         "id": "C",
@@ -24,7 +46,14 @@
         "iden": "LFI",
         "tzone": "UTC -4",
         "location": "Hampton, VA",
-        "cor": "37-04-58.3900N 076-21-37.9400W"
+        "cor": "37-04-58.3900N 076-21-37.9400W",
+        "size": "~3,100 acres",
+        
+        "r1": "8/26",
+        "r1Surface": "concrete/grooved",
+        "r1Dim": "10002 x 150 ft. / 3049 x 46 m",
+
+        "image": "images/langleyAFB.png"
     },
     {
         "id": "D",
@@ -33,7 +62,18 @@
         "iden": "VPS",
         "tzone": "UTC -5",
         "location": "Destin-Fort Walton Beach, Florida",
-        "cor": "30-28-59.5899N 086-31-33.7596W"
+        "cor": "30-28-59.5899N 086-31-33.7596W",
+        "size": "~250,000 acres",
+
+        "r1": "12/30",
+        "r1Surface": "asphalt/concrete",
+        "r1Dim": "11987 x 300 ft. / 3654 x 91 m",
+
+        "r2": "2/20",
+        "r2Surface": "asphalt",
+        "r2Dim": "10001 x 300 ft. / 3048 x 91 m",
+        
+        "image": "images/eglinAFB.png"
     },
     {
         "id": "E",
@@ -42,6 +82,17 @@
         "iden": "LSV",
         "tzone": "UTC -7",
         "location": "Las Vegas, Nevada",
-        "cor": "36-14-10.3200N 115-02-03.3200W"
+        "cor": "36-14-10.3200N 115-02-03.3200W",
+        "size": "~14,000 acres",
+
+        "r1": "3L/21R",
+        "r1Surface": "concrete",
+        "r1Dim": "10120 x 200 ft. / 3085 x 61 m",
+
+        "r2": "3R/21L",
+        "r2Surface": "concrete",
+        "r2Dim": "10051 x 150 ft. / 3064 x 46 m",
+        
+        "image": "images/nellisAFB.png"
     }
 ]

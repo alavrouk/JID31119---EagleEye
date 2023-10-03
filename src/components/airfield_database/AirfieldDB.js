@@ -42,6 +42,32 @@ function AirfieldDB() {
             <Typography variant="body1">Time Zone: {selectedAirfield.tzone}</Typography>
             <Typography variant="body1">Location: {selectedAirfield.location}</Typography>
             <Typography variant="body1">Corrdinates (Lat/Long): {selectedAirfield.cor}</Typography>
+            <Typography variant="body1">
+              Runway(s):
+              {selectedAirfield.r1 && selectedAirfield.r2 ? (
+                <u1 style={{listStylePosition: 'inside', paddingLeft: '20px'}}>
+                  <li style={{marginLeft: '20px'}}>{selectedAirfield.r1}
+                    <li style={{marginLeft: '20px'}}>Surface(s): {selectedAirfield.r1Surface}</li>
+                    <li style={{marginLeft: '20px'}}>Dimension: {selectedAirfield.r1Dim}</li>
+                  </li>
+                  <li style={{marginLeft: '20px'}}>{selectedAirfield.r2}
+                    <li style={{marginLeft: '20px'}}>Surface(s): {selectedAirfield.r2Surface}</li>
+                    <li style={{marginLeft: '20px'}}>Dimension: {selectedAirfield.r2Dim}</li>
+                  </li>
+                </u1>
+              ) : (
+                <u1 style={{listStylePosition: 'inside', paddingLeft: '20px'}}>
+                  <li style={{marginLeft: '20px'}}>{selectedAirfield.r1}
+                    <li style={{marginLeft: '20px'}}>Surface(s): {selectedAirfield.r1Surface}</li>
+                    <li style={{marginLeft: '20px'}}>Dimension: {selectedAirfield.r1Dim}</li>
+                  </li>
+                </u1>
+              )}
+            </Typography>
+            <img 
+            src={require(`./${selectedAirfield.image}`)} 
+            alt="Airfield Image"
+            style={{marginTop: '20px', maxWidth: '100%'}}></img>
           </Paper>
         )}
       </Box>
