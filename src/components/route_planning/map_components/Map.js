@@ -2,7 +2,7 @@ import React from "react";
 import { ComposableMap, Geographies, Geography, Line, Marker, ZoomableGroup } from "react-simple-maps";
 import { Card, CardContent, CardHeader, Grid, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 
-const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/united-states/us-albers-counties.json";
+const geoUrl = "https://raw.githubusercontent.com/santoshF/topojson-1/master/countries/united-states/us-albers-counties.json";
 
 export default function MapChart() {
   const [startPoint, setStartPoint] = React.useState(null);
