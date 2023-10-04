@@ -14,8 +14,8 @@ function Navbar({ setActivePage }) {
         <Button color="inherit" onClick={() => setActivePage('airfield_database')}>
           Airfield Database
         </Button>
-        <Button color="inherit" onClick={() => setActivePage('business_plot')}>
-          Business Plot
+        <Button color="inherit" onClick={() => setActivePage('traffic_plot')}>
+          Traffic Plot
         </Button>
         <Button color="inherit" onClick={() => setActivePage('filedrop')}>
           File Drop

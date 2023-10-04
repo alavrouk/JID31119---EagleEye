@@ -3,7 +3,7 @@ import './App.css';
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import AirfieldDB from './components/airfield_database/AirfieldDB';
-import BusinessPlot from './components/business_plot/BusinessPlot';
+import TrafficPlot from './components/traffic_plot/TrafficPlot';
 import FileDrop from './components/filedrop/FileDrop';
 import RoutePlanning from './components/route_planning/RoutePlanning';
 
@@ -14,8 +14,8 @@ function App() {
     switch (activePage) {
       case 'airfield_database':
         return <AirfieldDB />;
-      case 'business_plot':
-        return <BusinessPlot />;
+      case 'traffic_plot':
+        return <TrafficPlot />;
       case 'filedrop':
         return <FileDrop />;
       case 'route_planning':

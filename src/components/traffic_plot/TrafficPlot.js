@@ -2,7 +2,7 @@ import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import data from './businessData.json'
 
-function BusinessPlot() {
+function TrafficPlot() {
 
     return (
         <><ResponsiveContainer width ='100%' height = {400}>
@@ -27,4 +27,4 @@ function BusinessPlot() {
     )
 }
 
-export default BusinessPlot
+export default TrafficPlot
