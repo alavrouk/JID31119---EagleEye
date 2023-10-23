@@ -1,127 +1,83 @@
-import React from "react";
-import { ComposableMap, Geographies, Geography, Line, Marker, ZoomableGroup } from "react-simple-maps";
+import React, { useState } from 'react';
+import MapGL, { Marker } from 'react-map-gl';
 import { Card, CardContent, CardHeader, Grid, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 
-const geoUrl = "https://raw.githubusercontent.com/santoshF/topojson-1/master/countries/united-states/us-albers-counties.json";
-
 export default function MapChart() {
-  const [startPoint, setStartPoint] = React.useState(null);
-  const [endPoint, setEndPoint] = React.useState(null);
-  const [markers, setMarkers] = React.useState([]);
+  const [viewport, setViewport] = useState({
+    width: "100%",
+    height: "100%",
+    latitude: 37.8,
+    longitude: -122.4,
+    zoom: 8
+  });
 
-  const handleMapClick = (geo) => {
-    const coords = geo.geometry.coordinates[0][0];
-    
-    // Create a new marker
+  const [markers, setMarkers] = useState([]);
+
+  const onMapClick = (event) => {
     const newMarker = {
-      markerOffset: -15,
-      name: `${coords[1].toFixed(2)}, ${coords[0].toFixed(2)}`, // format as "lat, long"
-      coordinates: coords
+      latitude: event.lngLat[1],
+      longitude: event.lngLat[0],
+      name: `${event.lngLat[1].toFixed(2)}, ${event.lngLat[0].toFixed(2)}`
     };
-  
-    if (!startPoint) {
-      setStartPoint(coords);
-      setMarkers([newMarker]);
-    } else if (!endPoint) {
-      setEndPoint(coords);
-      setMarkers(prevMarkers => [...prevMarkers, newMarker]);
-    } else {
-      setStartPoint(coords);
-      setEndPoint(null);
-      setMarkers([newMarker]);
-    }
+    setMarkers((prevMarkers) => [...prevMarkers, newMarker]);
   };
+  
+
 
   return (
-      <Grid container spacing={3} style={{ marginTop: '1%' }}>
-          {/* Map Card */}
-          <Grid item xs={8}> {/* or adjust the grid size as required */}
-              <Card>
-                  <CardHeader title="Route Planning" />
-                  <CardContent>
-                    <ComposableMap projection="geoAlbersUsa">
-                      <ZoomableGroup>
-                          <Geographies geography={geoUrl}>
-                            {({ geographies }) =>
-                              geographies.map((geo) => (
-                                <Geography
-                                  key={geo.rsmKey}
-                                  geography={geo}
-                                  onClick={() => handleMapClick(geo)}
-                                  style={{
-                                    default: { outline: 'none' },
-                                    hover: { outline: 'none' },
-                                    pressed: { outline: 'none' },
-                                  }}
-                                />
-                              ))
-                            }
-                          </Geographies>
-                        
-                        {startPoint && endPoint && (
-                          <Line
-                            from={startPoint}
-                            to={endPoint}
-                            stroke="#FF5733"
-                            strokeWidth={2}
-                          />
-                        )}
+    <Grid container spacing={3} style={{ marginTop: '1%', height: 'calc(100vh - 64px)' }}> {/* Updated style to give a height to the Grid container */}
+      {/* Map Card */}
+      <Grid item xs={8} style={{ height: '100%' }}> {/* Updated style to give a height to the Grid item */}
+        <Card style={{ height: '100%' }}> {/* Updated style to give a height to the Card */}
+          <CardHeader title="Route Planning" />
+          <CardContent style={{ height: 'calc(100% - 72px)' }}> {/* Updated style to give a height to the CardContent */}
+            <MapGL
+              {...viewport}
+              mapboxAccessToken={"pk.eyJ1IjoiYnl0ZXdvcmQiLCJhIjoiY2xvM2ZoeTYyMXV3ejJzcWg0ZW9kYTIzeiJ9.7w-A4w54wrYZxIlH6KAiNw"}
+              mapStyle="mapbox://styles/mapbox/dark-v11"
+              onViewportChange={(nextViewport) => setViewport(nextViewport)}
+              onClick={onMapClick}
+            >
+              {markers.map((marker, index) => (
+                <Marker
+                  key={index}
+                  latitude={marker.latitude}
+                  longitude={marker.longitude}
+                >
+                  <div style={{ color: "#FF5733" }}>•</div>
+                </Marker>
+              ))}
+            </MapGL>
+          </CardContent>
+        </Card>
+      </Grid>
 
-                        {markers.map((marker, index) => (
-                          <Marker key={index} coordinates={marker.coordinates}>
-                            <circle r={6} fill="#FF5733" />
-                            <text
-                              textAnchor="middle"
-                              y={marker.markerOffset}
-                              style={{
-                                fontFamily: "system-ui",
-                                fill: "#5D5A6D",
-                                fontSize: "10px"
-                              }}
-                            >
-                              {marker.name}
-                            </text>
-                          </Marker>
-                        ))}            
-                    </ZoomableGroup>
-                    </ComposableMap>
-                </CardContent>
-            </Card>
-        </Grid>
-
-        {/* Table Card */}
-        <Grid item xs={4}> {/* or adjust the grid size as required */}
-            <Card>
-                <CardHeader title="Start & End Points" />
-                <CardContent>
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>Point Type</TableCell>
-                                <TableCell>Latitude</TableCell>
-                                <TableCell>Longitude</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {startPoint && (
-                                <TableRow>
-                                    <TableCell>Start Point</TableCell>
-                                    <TableCell>{startPoint[1].toFixed(2)}</TableCell>
-                                    <TableCell>{startPoint[0].toFixed(2)}</TableCell>
-                                </TableRow>
-                            )}
-                            {endPoint && (
-                                <TableRow>
-                                    <TableCell>End Point</TableCell>
-                                    <TableCell>{endPoint[1].toFixed(2)}</TableCell>
-                                    <TableCell>{endPoint[0].toFixed(2)}</TableCell>
-                                </TableRow>
-                            )}
-                        </TableBody>
-                    </Table>
-                </CardContent>
-            </Card>
-        </Grid>
+      {/* Table Card */}
+      <Grid item xs={4}>
+        <Card>
+          <CardHeader title="Markers" />
+          <CardContent>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Marker</TableCell>
+                  <TableCell>Latitude</TableCell>
+                  <TableCell>Longitude</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {markers.map((marker, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{index + 1}</TableCell>
+                    <TableCell>{marker.latitude.toFixed(2)}</TableCell>
+                    <TableCell>{marker.longitude.toFixed(2)}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      </Grid>
     </Grid>
-);
+  );
 }
