@@ -3,15 +3,15 @@ import pandas as pd
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import torch.utils.data as data
+import torch.utils.data as data_
 
-LOOKBACK = 5
+LOOKBACK = 10
 HIDDEN_SIZE = 50
-NUM_EPOCHS = 200
+NUM_EPOCHS = 2000
 BATCH_SIZE = 32
 
 def generate_time_series(length, freq=0.1):
-    x = np.arrange(length)
+    x = np.arange(length)
     y = np.sin(freq * x) * 10 + np.random.normal(scale=1, size=length) + 15
     y = np.clip(y, 0, None)
     return y.round().astype(int)
@@ -51,14 +51,14 @@ class LSTM_Predictor(nn.Module):
     def forward(self, x):
         x, _ = self.lstm(x)
         x = self.linear(x)
-        x = int(x)
+        # x = int(x)
         return x
 
 def train(X_train, y_train, X_test, y_test):
     model = LSTM_Predictor()
     optimizer = optim.Adam(model.parameters())
     loss_fn = nn.MSELoss()
-    loader = data.DataLoader(data.TensorDataset(X_train, y_train), shuffle=True, batch_size=BATCH_SIZE)
+    loader = data_.DataLoader(data_.TensorDataset(X_train, y_train), shuffle=True, batch_size=BATCH_SIZE)
 
     n_epochs = NUM_EPOCHS
     for epoch in range(n_epochs):
