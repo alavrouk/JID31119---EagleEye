@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 
-# https://www.youtube.com/watch?v=zscK8dlRlBM
+# https://www.youtube.com/watch?v=Al8m6K_stfA
 
 P = 1 # autoregressive order, or the number of previosu time steps used to predict the current timestep
 D = 1 # differencing order, or the amount of differencing added to the data to make it stationary
