@@ -2,13 +2,27 @@ from neuralprophet import NeuralProphet
 import datetime
 import pandas as pd
 import numpy as np
+from scipy.stats import truncnorm
 
-def createData():
-    # Sample data creation function: Generates a time-value DataFrame
-    # This is a placeholder and you can replace it with your actual data creation logic
-    return df
+def create_timeseries_dataframe(fp=None):
+    if fp is None:
+        date_range = pd.date_range(start='2022-01-01', end='2023-04-11', freq='H')
+        
+        # Create a periodic signal
+        x = np.linspace(0, 2 * np.pi, len(date_range))
+        y_points = np.sin(x) + 0.5 * np.sin(4 * x) + 0.25 * np.sin(8 * x)
+        
+        # Add Gaussian noise to the signal
+        noise = np.random.normal(0, 0.1, len(date_range))
+        y_points += noise
+        
+        # Scale the signal for better visualization
+        y_points = (y_points - y_points.min()) / (y_points.max() - y_points.min())
+        
+        return pd.DataFrame({'ds': date_range, 'y': y_points})
+    
 
-df = createData()
+df = create_timeseries_dataframe()
 model = NeuralProphet()
 model.fit(df, freq='H')
 
