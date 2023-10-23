@@ -2,6 +2,16 @@
 
 A machine learning solution for US Air Force route planning.
 
+## Version 0.3.0
+### New Features
+- Created three models for airfield utilization time series prediction
+- Created synthetic data generator to use in airfield utilization
+- Created linear programming instance for fleet route planning
+### Bug Fixes
+- Fixed up bugs in the route planning visualization
+### Known Issues
+- Models are not tuned and thus do not represent final performance
+
 ## Version 0.2.0
 ### New Features
 - Added business plot showing airfield ground clearance trends
