@@ -3,6 +3,8 @@ import { useDropzone } from "react-dropzone"
 import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import fileIcon from '../../assets/icons/fileIcon.svg'
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import './styles/fileDrop.css'
 
 function FileDrop() {
@@ -28,6 +30,55 @@ function FileDrop() {
         },
     })
 
+    const notify = (message, type, options) => {
+        switch (type) {
+            case "success":
+                toast.success(message, options);
+                break;
+            case "error":
+                toast.error(message, options);
+                break;
+            case "warning":
+                toast.warning(message, options);
+                break;
+            default:
+                toast(message, options);
+                break;
+        }
+    };
+
+    const handleFileUpload = async () => {
+        const formData = new FormData();
+        uploadedFiles.forEach((file) => {
+            formData.append('files', file);
+        });
+
+        try {
+            const response = await fetch('http://localhost:8000/api/upload_files', {
+                method: 'POST',
+                body: formData,
+            });
+            const data = await response.json();
+
+            if (response.ok) {
+                notify("Files uploaded successfully!", "success", {
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                });
+                clearUploadedFiles();  // clear the uploaded files from the state if the upload is successful
+            } else {
+                alert("Error uploading files:" + JSON.stringify(data));
+            }
+        } catch (error) {
+            alert("There was an error uploading the files:" + error);
+        }
+    };
+
+
     const removeFile = (id, event) => {
         event.stopPropagation()
         setUploadedFiles((prev) => {
@@ -42,7 +93,7 @@ function FileDrop() {
     const clearUploadedFiles = () => {
         uploadedFiles.forEach((file) => {
             URL.revokeObjectURL(file.preview);
-        }); 
+        });
         setUploadedFiles([]);
     };
 
@@ -91,13 +142,14 @@ function FileDrop() {
                     </div>
                 </div >
                 <div className='file-upload-button-container'>
-                    <Button 
-                        variant="contained" 
-                        startIcon={<CloudUploadIcon />} 
-                        onClick={clearUploadedFiles}
-                        > Upload files</Button>
+                    <Button
+                        variant="contained"
+                        startIcon={<CloudUploadIcon />}
+                        onClick={handleFileUpload}
+                    > Upload files</Button>
                 </div>
             </div>
+            <ToastContainer />
         </>
     )
 }
