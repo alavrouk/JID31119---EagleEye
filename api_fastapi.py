@@ -49,10 +49,6 @@ async def upload_files(files: List[UploadFile] = File(...)):
         
     return {"Result": "OK", "filenames": [file.filename for file in files]}
 
-
-
-
-
 if __name__ == '__main__':
     import uvicorn
     uvicorn.run(app, host='127.0.0.1', port=8000, log_level="info")
