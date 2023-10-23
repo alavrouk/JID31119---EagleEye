@@ -21,6 +21,7 @@ app.add_middleware(
 )
 
 
+
 #################################################
 #                                               #
 #               API ENDPOINTS                   #
@@ -47,7 +48,6 @@ async def upload_files(files: List[UploadFile] = File(...)):
             file_object.write(file.file.read())
         
     return {"Result": "OK", "filenames": [file.filename for file in files]}
-
 
 if __name__ == '__main__':
     import uvicorn
