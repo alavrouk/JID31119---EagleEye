@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
-import Map, { Marker } from 'react-map-gl';
+import Map, { Source, Layer } from 'react-map-gl';
 import { Card, CardContent, CardHeader, Grid, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 
 export default function MapChart() {
-  const [viewport, setViewport] = useState({
-    width: "100%",
-    height: "100%",
-    latitude: 37.8,
-    longitude: -122.4,
-    zoom: 8
-  });
-
   const [markers, setMarkers] = useState([]);
 
   const onMapClick = (event) => {
@@ -22,6 +14,20 @@ export default function MapChart() {
     setMarkers((prevMarkers) => [...prevMarkers, newMarker]);
   };
   
+  const route = {
+    type: 'Feature',
+    geometry: {
+      type: 'LineString',
+      coordinates: [ 
+        [-76.94776058821482, 38.975938932582004],
+        [-80.88550077836578, 35.32765326022499],
+        [-84.37884259420754, 33.75983997431495],
+        [-95.44272103812588, 29.920348864226984],
+        [-99.60395629376201, 19.60640752015661]
+      ]
+    }
+  };
+
 
 
   return (
@@ -41,7 +47,15 @@ export default function MapChart() {
             }}
             style={{width: 1750, height: 1000}}
             mapStyle="mapbox://styles/mapbox/dark-v11"
-          />
+          >
+            <Source type="geojson" data={route}>
+              <Layer
+                type="line"
+                layout={{ "line-join": "round", "line-cap": "round" }}
+                paint={{ "line-color": "yellow", "line-width": 1.5 }}
+              />
+            </Source>
+          </Map>
           </CardContent>
         </Card>
       </Grid>
