@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MapGL, { Marker } from 'react-map-gl';
+import Map, { Marker } from 'react-map-gl';
 import { Card, CardContent, CardHeader, Grid, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 
 export default function MapChart() {
@@ -27,27 +27,21 @@ export default function MapChart() {
   return (
     <Grid container spacing={3} style={{ marginTop: '1%', height: 'calc(100vh - 64px)' }}> {/* Updated style to give a height to the Grid container */}
       {/* Map Card */}
-      <Grid item xs={8} style={{ height: '100%' }}> {/* Updated style to give a height to the Grid item */}
-        <Card style={{ height: '100%' }}> {/* Updated style to give a height to the Card */}
+      <Grid item xs={8} style={{ height: '100%' }}>
+        <Card style={{ height: '100%' }}>
           <CardHeader title="Route Planning" />
-          <CardContent style={{ height: 'calc(100% - 72px)' }}> {/* Updated style to give a height to the CardContent */}
-            <MapGL
-              {...viewport}
-              mapboxAccessToken={"pk.eyJ1IjoiYnl0ZXdvcmQiLCJhIjoiY2xvM2ZoeTYyMXV3ejJzcWg0ZW9kYTIzeiJ9.7w-A4w54wrYZxIlH6KAiNw"}
-              mapStyle="mapbox://styles/mapbox/dark-v11"
-              onViewportChange={(nextViewport) => setViewport(nextViewport)}
-              onClick={onMapClick}
-            >
-              {markers.map((marker, index) => (
-                <Marker
-                  key={index}
-                  latitude={marker.latitude}
-                  longitude={marker.longitude}
-                >
-                  <div style={{ color: "#FF5733" }}>•</div>
-                </Marker>
-              ))}
-            </MapGL>
+          <CardContent style={{ height: 'calc(100% - 72px)' }}>
+          <Map
+            //parameterize!!!!!!!! should not be in cleartext
+            mapboxAccessToken="pk.eyJ1IjoiYnl0ZXdvcmQiLCJhIjoiY2xvM2ZoeTYyMXV3ejJzcWg0ZW9kYTIzeiJ9.7w-A4w54wrYZxIlH6KAiNw"
+            initialViewState={{
+              longitude: -122.4,
+              latitude: 37.8,
+              zoom: 14
+            }}
+            style={{width: 1750, height: 1000}}
+            mapStyle="mapbox://styles/mapbox/dark-v11"
+          />
           </CardContent>
         </Card>
       </Grid>
