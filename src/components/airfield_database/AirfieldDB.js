@@ -66,7 +66,7 @@ function AirfieldDB() {
             </Typography>
             <img 
             src={require(`./${selectedAirfield.image}`)} 
-            alt="Airfield Image"
+            alt=""
             style={{marginTop: '20px', maxWidth: '100%'}}></img>
           </Paper>
         )}

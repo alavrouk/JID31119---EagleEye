@@ -3,16 +3,7 @@ import Map, { Source, Layer } from 'react-map-gl';
 import { Card, CardContent, CardHeader, Grid, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 
 export default function MapChart() {
-  const [markers, setMarkers] = useState([]);
-
-  const onMapClick = (event) => {
-    const newMarker = {
-      latitude: event.lngLat[1],
-      longitude: event.lngLat[0],
-      name: `${event.lngLat[1].toFixed(2)}, ${event.lngLat[0].toFixed(2)}`
-    };
-    setMarkers((prevMarkers) => [...prevMarkers, newMarker]);
-  };
+  const [markers] = useState([]);
   
   const route = {
     type: 'Feature',
@@ -28,8 +19,7 @@ export default function MapChart() {
     }
   };
 
-
-
+  
   return (
     <Grid container spacing={3} style={{ marginTop: '1%', height: 'calc(100vh - 64px)' }}> {/* Updated style to give a height to the Grid container */}
       {/* Map Card */}
