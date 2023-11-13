@@ -5,9 +5,9 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.utils.data as data_
 
-LOOKBACK = 10
+LOOKBACK = 168
 HIDDEN_SIZE = 50
-NUM_EPOCHS = 2000
+NUM_EPOCHS = 1000
 BATCH_SIZE = 32
 
 def generate_time_series(length, freq=0.1):
@@ -37,9 +37,9 @@ def split_data(data, ratio=0.8):
 
 def format_data(data, look_back=3):
     x, y = [], []
-    for i in range(len(data) - look_back):
+    for i in range(len(data) - look_back - 25):
         x.append(data[i:i+look_back])
-        y.append(data[i+1:i+look_back+1])
+        y.append(data[(i+24):(i+look_back+24)])
     return np.array(x), np.array(y)
 
 
@@ -80,17 +80,18 @@ def train(X_train, y_train, X_test, y_test):
             y_pred = model(X_test)
             test_rmse = torch.sqrt(loss_fn(y_pred, y_test))
         print("Epoch %d: train RMSE %.4f, test RMSE %.4f" % (epoch, train_rmse, test_rmse))
+    torch.save(model, 'model.pth')
 
 
-airfield_data = generate_airfield_data()
-for airfield, data in airfield_data.items():
-    X, Y = format_data(data, look_back=LOOKBACK)
-    X_train_np, X_test_np = split_data(X)
-    y_train_np, y_test_np = split_data(Y)
+# airfield_data = generate_airfield_data()
+# for airfield, data in airfield_data.items():
+#     X, Y = format_data(data, look_back=LOOKBACK)
+#     X_train_np, X_test_np = split_data(X)
+#     y_train_np, y_test_np = split_data(Y)
     
-    X_train = torch.FloatTensor(X_train_np)
-    y_train = torch.FloatTensor(y_train_np)
-    X_test = torch.FloatTensor(X_test_np)
-    y_test = torch.FloatTensor(y_test_np)
+#     X_train = torch.FloatTensor(X_train_np)
+#     y_train = torch.FloatTensor(y_train_np)
+#     X_test = torch.FloatTensor(X_test_np)
+#     y_test = torch.FloatTensor(y_test_np)
 
-    train(X_train, y_train, X_test, y_test)
+#     train(X_train, y_train, X_test, y_test)
