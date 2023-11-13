@@ -68,7 +68,7 @@ function TrafficPlot() {
                 </FormControl>
             </div>
             {isLoading ? (
-                <div className="loading-indicator">
+                <div className="loading-indicator" style={{ height: "25rem", width: "100%", display: "flex", justifyContent: "center", alignItems: "center", margin: "auto" }}>
                     <CircularProgress />
                 </div>
             ) : (
