@@ -1,24 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { FormControl, Select, MenuItem } from '@mui/material';
-import data from './businessData.json'
+import { FormControl, Select, MenuItem, CircularProgress } from '@mui/material';
 import "./styles/trafficPlot.css"
 
 function TrafficPlot() {
+    const [selectedModel, setSelectedModel] = useState({ id: "neuralprophet", name: "Neural Prophet" });
+    const [modelData, setModelData] = useState([]);
+    const [chartData, setChartData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
-    const [selectedModel, setSelectedModel] = useState({ id: "LSTM", name: "LSTM" })
+    useEffect(() => {
+        const fetchData = async () => {
+            let url = `http://localhost:8000/api/${selectedModel.id}`;
+            setIsLoading(true);
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                setModelData(data);
+            } catch (error) {
+                alert(`Error fetching data: ${error}`);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        if (selectedModel.id) {
+            fetchData();
+        }
+    }, [selectedModel]);
+
+    useEffect(() => {
+        const formattedData = Object.keys(modelData).map(key => ({
+            time: key,
+            value: modelData[key]
+        }));
+
+        setChartData(formattedData);
+    }, [modelData]);
 
     const models = [
         { id: "LSTM", name: "LSTM" },
-        { id: "Neural Prophet", name: "Neural Prophet" },
-        { id: "SARIMA", name: "SARIMA" },
-    ]
+        { id: "neuralprophet", name: "Neural Prophet" },
+        { id: "SARIMAX", name: "SARIMA" },
+    ];
 
     const handleDropdownChange = (e) => {
         const selectedId = e.target.value;
         const selected = models.find(model => model.id === selectedId);
         setSelectedModel(selected || {});
-    }
+    };
 
     return (
         <>
@@ -36,26 +67,31 @@ function TrafficPlot() {
                     </Select>
                 </FormControl>
             </div>
-            <ResponsiveContainer width='100%' height={400}>
-                <BarChart
-                    width={800}
-                    height={400}
-                    data={data}
-                    margin={{
-                        top: 20, right: 30, left: 20, bottom: 5,
-                    }}
-                >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="time" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    <Bar dataKey="yhat1" fill="#8884d8" />
-                    <Bar dataKey="Actual" fill="#82ca9d" />
-                </BarChart>
-            </ResponsiveContainer>
+            {isLoading ? (
+                <div className="loading-indicator" style={{ height: "25rem", width: "100%", display: "flex", justifyContent: "center", alignItems: "center", margin: "auto" }}>
+                    <CircularProgress />
+                </div>
+            ) : (
+                <ResponsiveContainer width='100%' height={400}>
+                    <BarChart
+                        width={800}
+                        height={400}
+                        data={chartData}
+                        margin={{
+                            top: 20, right: 30, left: 20, bottom: 5,
+                        }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="time" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="value" fill="#8884d8" />
+                    </BarChart>
+                </ResponsiveContainer>
+            )}
         </>
-    )
+    );
 }
 
-export default TrafficPlot
+export default TrafficPlot;
