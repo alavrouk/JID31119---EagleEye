@@ -48,4 +48,5 @@ res = linprog(c, A_eq=A_eq, b_eq=b_eq, method='highs')
 # Print the results
 print(res)
 print(res.message)
+print(res.x)
 print("Optimal total time:", res.fun)
