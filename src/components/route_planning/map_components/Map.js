@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Map, { Source, Layer } from 'react-map-gl';
 import { Card, CardContent, CardHeader, Grid, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 
 export default function MapChart() {
   const [markers] = useState([]);
-  
+  const [apiData, setApiData] = useState(0);
   const route = {
     type: 'Feature',
     geometry: {
@@ -18,6 +18,17 @@ export default function MapChart() {
       ]
     }
   };
+
+  const fetchData = async () => {
+      const response = await fetch('http://localhost:8000/api/linearprogramming');
+      const data = await response.json();
+      setApiData(data); // Update the state with the fetched data
+  };
+  
+  
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   
   return (
@@ -76,6 +87,33 @@ export default function MapChart() {
           </CardContent>
         </Card>
       </Grid>
+
+      {/* New Grid item for displaying the API data */}
+      {apiData && (
+        <Grid item xs={12}>
+          <Card>
+            <CardHeader title="Linear Programming Results" />
+            <CardContent>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Key</TableCell>
+                    <TableCell>Value</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {Object.entries(apiData).map(([key, value]) => (
+                    <TableRow key={key}>
+                      <TableCell>{key}</TableCell>
+                      <TableCell>{Array.isArray(value) ? value.join(', ') : value}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+        </Grid>
+      )}
     </Grid>
   );
 }
