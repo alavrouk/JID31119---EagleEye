@@ -2,6 +2,17 @@
 
 A machine learning solution for US Air Force route planning.
 
+## Version 0.4.0
+### New Features
+- Linked up 3 time-series utilization models to front end - now results are graphed through FastAPI
+- Created a better map visualization using more modern tools
+- Linked linear programming based route planning to a table at the bottom of the route planning page.
+### Bug Fixes
+- Fixed SARIMA bug where the resultant distribution would just be completely random
+### Known Issues
+- Models are not tuned and thus do not represent final performance (but better tuned than last time)
+- neuralprophet model is trained on a different dataset and thus produces different results.
+
 ## Version 0.3.0
 ### New Features
 - Created three models for airfield utilization time series prediction
