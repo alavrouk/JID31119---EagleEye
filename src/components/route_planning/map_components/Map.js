@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Map, { Marker, Source, Popup, Layer } from 'react-map-gl';
 import { Card, CardContent, CardHeader, Grid, Table, TableBody, TableCell, TableHead, TableRow, TextField, Button, CardActions } from '@mui/material';
-import arrowhead from './arrowhead.png'
 
 export default function MapChart() {
   const [markers, setMarkers] = useState([
@@ -43,7 +42,8 @@ export default function MapChart() {
       number: number,
       midPoint: { latitude: midLatitude, longitude: midLongitude },
       arrowPoint: arrowPosition,
-      angle: angle
+      angle: angle,
+      direction: startWaypoint.longitude < endWaypoint.longitude ? "<" : ">"
     };
   
     // Add the new arrow to the state
@@ -54,7 +54,7 @@ const calculateAngle = (start, end) => {
   const dy = end.latitude - start.latitude;
   const dx = end.longitude - start.longitude;
   const theta = Math.atan2(dy, dx); // range (-PI, PI]
-  return (theta * 180 / Math.PI)  - 45; // Convert to degrees
+  return (theta * 180 / Math.PI); // Convert to degrees
 };
 
   const fetchData = async () => {
@@ -92,7 +92,6 @@ const calculateAngle = (start, end) => {
         console.log(nums)
         for (let i = 0; i < nums.length; i++) {
           if (nums[i] !== 0) {
-            console.log("cum")
             addArrow(markers[Math.floor(i/5)], markers[i%5], nums[i])
           }
         }
@@ -121,7 +120,7 @@ const calculateAngle = (start, end) => {
               initialViewState={{
                 longitude: -122.4,
                 latitude: 37.8,
-                zoom: 14
+                zoom: 5
               }}
               style={{ width: '100%', height: '100%' }}
               mapStyle="mapbox://styles/mapbox/dark-v11"
@@ -158,15 +157,15 @@ const calculateAngle = (start, end) => {
                   />
                   <Marker
                     longitude={arrow.midPoint.longitude}
-                    latitude={arrow.midPoint.latitude}
+                    latitude={arrow.direction === ">" ? arrow.midPoint.latitude + 0.3 : arrow.midPoint.latitude - 0.3}
                     offsetLeft={0} // Adjust as needed
                     offsetTop={0} // Adjust as needed
                   >
-                  <div style={{ color: 'red', fontSize: '23px' }}>
-                    {arrow.number}
+                  <div style={{ color: 'red', fontSize: '23px'}}>
+                    {arrow.number}{arrow.direction}
                   </div>
                 </Marker>
-                <Marker
+                {/* <Marker
                   longitude={arrow.arrowPoint.longitude }
                   latitude={arrow.arrowPoint.latitude }
                   offsetLeft={100} // Adjust based on the size of the arrowhead icon
@@ -175,7 +174,7 @@ const calculateAngle = (start, end) => {
                   <div style={{ transform: `rotate(${arrow.angle}deg)`, zIndex: 1 }}>
                     <img src={arrowhead} alt="arrowhead" />
                   </div>
-                </Marker>
+                </Marker> */}
                   {/* Add more layers or elements for arrowheads and numbers */}
                 </>
               ))}
