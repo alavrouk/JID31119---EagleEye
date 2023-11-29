@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, Body
 from fastapi.middleware.cors import CORSMiddleware
 from scipy.optimize import linprog
 
@@ -95,20 +95,27 @@ async def lstm():
     outputs = pd.Series(outputs)
     return outputs
 
-@app.get("/api/linearprogramming")
-async def linearprogramming():
+@app.post("/api/linearprogramming")
+async def linearprogramming(sup_dict: dict = Body(...)):
     # Number of origins and destinations
-    n = 100
-    m = 100
+    n = 5
+    m = 5
 
     # Generate random data for the example
     np.random.seed(42)  # for reproducibility
 
     # Time matrix (time taken in hours) - random values between 1 and 10
-    time_matrix = np.random.randint(1, 11, size=(n, m))
+    time_matrix = np.array([
+        [1000, 3.8, 0.3, 2.5, 5.5],
+        [3.8, 1000, 3, 1.25, 3],
+        [0.3, 3, 1000, 1.5, 5.75],
+        [2.5, 1.25, 1.5, 1000, 4],
+        [5.5, 3, 5.75, 4, 1000]
+    ])
 
     # Supply (number of planes at origins) - random values between 1 and 5
-    supply = np.random.randint(1, 6, size=n)
+    sup_dict = sup_dict["supplies"]
+    supply = np.array([int(value) for key, value in sup_dict.items()])
 
     # Adjust the total demand to match the total supply
     total_planes = np.sum(supply)
@@ -144,7 +151,7 @@ async def linearprogramming():
     response = {
         "Optimization Message": res.message,
         "Optimal Total Time": res.fun,
-        "Solution Vector (First 10 Elements)": res.x[:10].tolist(),  # Converting numpy array to list for JSON serialization
+        "Solution Vector (First 10 Elements)": res.x.tolist(),  # Converting numpy array to list for JSON serialization
         "Status Code": res.status,
         "Number of Iterations": res.nit
     }
