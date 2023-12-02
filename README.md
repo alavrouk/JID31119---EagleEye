@@ -14,10 +14,10 @@
    - [Version 0.2.0](#version-0.2.0)
    - [Version 0.1.0](#version-0.1.0)
 5. [Sprint Demo Videos](#sprint-demo-videos)
-   - [Sprint 2 Demo Video](#sprint-2)
-   - [Sprin5 3 Demo Video](#sprint-3)
-   - [Sprint 4 Demo Video](#sprint-4)
-   - [Sprint 5 Demo Video](#sprint-5)
+   - [Sprint 2 Demo Video](#sprint-2-video)
+   - [Sprint 3 Demo Video](#sprint-3-video)
+   - [Sprint 4 Demo Video](#sprint-4-video)
+   - [Sprint 5 Demo Video](#sprint-5-video)
 
 ## Introduction
 
