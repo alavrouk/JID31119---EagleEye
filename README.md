@@ -15,7 +15,7 @@ Follow these steps to set up the Eagle Eye environment on your machine:
 
 ### Prerequisites
 
-- Python 3.10.8
+- Python 3.10.8 (for backend setup)
 - Node.js and npm (for frontend setup)
 
 ### Installation
@@ -24,17 +24,32 @@ Follow these steps to set up the Eagle Eye environment on your machine:
    ```shell
    conda create --name eagle-eye python=3.10.8
    conda activate eagle-eye
-2. **Install Python Dependencies:**
+2. **Clone and navigate to github repository**
+   ```shell
+   git clone https://github.com/alavrouk/jic3119-eagleeye.git
+   cd eagleeye
+3. **Install Python Dependencies:**
    ```shell
    pip install -r requirements.txt
-3. **Run the Backend Server:**
+4. **Run the Backend Server:**
    ```shell
    python api_fastapi.py
-4. **Set Up the Frontend:**
+5. **Open a New Shell and Set Up the Frontend:**
     ```shell
     npm install
     npm start
+6. **The front and backend should be running!**
 
+
+## Version 1.0.0
+### New Features
+- Built full-functioning linear programming optimizer for airfield balancing.
+- User ability to input their own supplies
+- Time matrix for different airfields in order to make optimization factually correct.
+### Bug Fixes
+- Fixed bug where the route planning map was zoomed into a weird place in California on startup.
+### Known Issues
+- Arrow formatting is not pleasant to look at in route planning.
 
 ## Version 0.4.0
 ### New Features
@@ -76,3 +91,58 @@ Follow these steps to set up the Eagle Eye environment on your machine:
 - Refactored Artifact code to ensure variables were properly tracked across Dashboard tabs 
 ### Known Issues
 - Hardcoded airfield data
+
+## 🎥 Sprint Demo Videos
+
+In each sprint of the Eagle Eye project, we've captured key developments and features through demo videos. These videos provide a visual overview of our progress and the functionalities implemented in each phase.
+
+### Sprint 2: [Initial Setup and Basic Functionality](#sprint-2-video)
+
+<details>
+<summary>Watch Sprint 2 Demo</summary>
+<p>
+
+[![Sprint 2 Demo](http://img.youtube.com/vi/0Qiomzz2VQ4/0.jpg)](http://www.youtube.com/watch?v=0Qiomzz2VQ4)
+
+</p>
+</details>
+
+### Sprint 3: [Advanced Features and Improvements](#sprint-3-video)
+
+<details>
+<summary>Watch Sprint 3 Demo</summary>
+<p>
+
+[![Sprint 3 Demo](http://img.youtube.com/vi/D1LilJZND2c/0.jpg)](http://www.youtube.com/watch?v=D1LilJZND2c)
+
+</p>
+</details>
+
+### Sprint 4: [Integration and Testing](#sprint-4-video)
+
+<details>
+<summary>Watch Sprint 4 Demo</summary>
+<p>
+
+[![Sprint 4 Demo](http://img.youtube.com/vi/xF8RNkDrioID/0.jpg)](http://www.youtube.com/watch?v=xF8RNkDrioI)
+
+</p>
+</details>
+
+### Sprint 5: [Finalization and Deployment](#sprint-5-video)
+
+<details>
+<summary>Watch Sprint 5 Demo (will be here in a few days)</summary>
+<p>
+
+[![Sprint 5 Demo](http://img.youtube.com/vi/VIDEO_ID/0.jpg)](http://www.youtube.com/watch?v=VIDEO_ID)
+
+</p>
+</details>
+
+*Click on the titles to expand and view each sprint's demo video.*
+
+---
+
+Enjoy watching the journey of Eagle Eye from conception to completion!
+
