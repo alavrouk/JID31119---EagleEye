@@ -15,12 +15,12 @@ Eagle Eye is an innovative machine learning solution designed to streamline rout
 
 Follow these steps to set up the Eagle Eye environment on your machine:
 
-### 💻 Prerequisites
+### Prerequisites
 
 - Python 3.10.8 (for backend setup)
 - Node.js and npm (for frontend setup)
 
-### 💻 Installation
+### Installation
 
 1. **Create a Conda Environment**:
    ```shell
@@ -148,4 +148,25 @@ In each sprint of the Eagle Eye project, we've captured key developments and fea
 ---
 
 Enjoy watching the journey of Eagle Eye from conception to completion!
+
+## 📫 Contact Us
+
+Should the need arise, feel free to contact the developers of this project for any sort of support!
+SCHOOL = gatech.edu
+
+### Anton Lavrouk
+- antonlavrouk\[AT\]\[SCHOOL\]
+- [LinkedIn](https://www.linkedin.com/in/alavrouk/)
+### Ivan Zapote
+- izapote3\[AT\]\[SCHOOL\]
+- [LinkedIn](https://www.linkedin.com/in/ivan-zapote/)
+### Azhan Khan
+- azkhan\[AT\]\[SCHOOL\]
+- [LinkedIn](https://www.linkedin.com/in/azhank/)
+### Eric Vela
+- ehernandez83\[AT\]\[SCHOOL\]
+- [LinkedIn](https://www.linkedin.com/in/eric-vela/)
+### David Schmidt
+- dschmidt44\[AT\]\[SCHOOL\]
+- [LinkedIn](https://www.linkedin.com/in/david-schmidt3/)
 
