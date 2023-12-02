@@ -44,15 +44,24 @@ Follow these steps to set up the Eagle Eye environment on your machine:
 
 ## Release Notes
 
-### Version 1.0.0
-#### New Features
-- Built full-functioning linear programming optimizer for airfield balancing.
-- User ability to input their own supplies
-- Time matrix for different airfields in order to make optimization factually correct.
-#### Bug Fixes
-- Fixed bug where the route planning map was zoomed into a weird place in California on startup.
-#### Known Issues
-- Arrow formatting is not pleasant to look at in route planning.
+<div style="border: 1px solid #ddd; padding: 20px; border-radius: 8px; background-color: #f9f9f9;">
+    <h3 style="color: #0366d6;">Version 1.0.0</h3>
+    <h4>New Features</h4>
+    <ul>
+        <li>Built full-functioning linear programming optimizer for airfield balancing.</li>
+        <li>User ability to input their own supplies</li>
+        <li>Time matrix for different airfields in order to make optimization factually correct.</li>
+    </ul>
+    <h4>Bug Fixes</h4>
+    <ul>
+        <li>Fixed bug where the route planning map was zoomed into a weird place in California on startup.</li>
+    </ul>
+    <h4>Known Issues</h4>
+    <ul>
+        <li>Arrow formatting is not pleasant to look at in route planning.</li>
+    </ul>
+</div>
+
 
 ### Version 0.4.0
 #### New Features
