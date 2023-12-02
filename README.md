@@ -151,7 +151,7 @@ Enjoy watching the journey of Eagle Eye from conception to completion!
 
 Should the need arise, feel free to contact the developers of this project for any sort of support!
 
-Due to the rise of spam-bots scraping github, we have obfuscated emails. \[SCHOOL\] = gatech.edu and \[@\] = @. Thank you for your understanding!
+*Due to the rise of spam-bots scraping github, we have obfuscated emails. \[SCHOOL\] = gatech.edu and \[AT\] = @. Thank you for your understanding!*
 
 ## Anton Lavrouk
 - antonlavrouk\[AT\]\[SCHOOL\]
