@@ -5,9 +5,10 @@ Eagle Eye is an innovative machine learning solution designed to streamline rout
 
 # 🗝️ Key Features
 
-- **Predictive Analysis**: Utilizes SARIMA, LSTMs, and Neuralprophet models to generate accurate airfield utilization predictions.
-- **Optimization**: Implements linear programming optimization for effective route planning.
-- **Scalable Architecture**: Designed to seamlessly integrate with existing systems and scale according to operational demands.
+- **Predictive Analysis 🔮**: Utilizes SARIMA, LSTMs, and Neuralprophet models to generate accurate airfield utilization predictions.
+- **Optimization 📊**: Implements linear programming optimization for effective route planning.
+- **Clean, Minimalistic UI 🌟**: Designed to allow a route planner of any background to use with as little confusion as possible.
+- **Continuosly Integrated, Continuously Deployed ⚙️**: Docker container with every release lives in the Github. Security and Code analysis runs on every push to the main branch.
 
 # 💻 Getting Started
 
