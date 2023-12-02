@@ -1,4 +1,4 @@
-![Eagle Eye Logo]()
+![Eagle Eye Logo](https://github.com/alavrouk/jic3119-eagleeye/blob/main/EAGLE_EYE_logo.png)
 # Eagle Eye: Advanced Route Planning Solution for US Air Force
 
 Eagle Eye is an innovative machine learning solution designed to streamline route planning for the US Air Force. This project leverages advanced predictive models and optimization techniques to enhance operational efficiency and decision-making.
