@@ -39,7 +39,11 @@ Follow these steps to set up the Eagle Eye environment on your machine:
     ```shell
     npm install
     npm start
-6. **The front and backend should be running!**
+6. **Troubleshooting:**
+   - In our development, the only source of error was dependencies.
+   - All dependencies are are listed in the requirements.txt.
+   - If there is an issue, we recommend you contact us, as these errors can be multitudinous and are tough to pin down.
+7. **The front and backend should be running!**
 
 # ✍️ Release Notes 
 
