@@ -150,6 +150,8 @@ Enjoy watching the journey of Eagle Eye from conception to completion!
 
 # 📫 Contact Us
 
+![Developer Headshots](https://github.com/alavrouk/jic3119-eagleeye/blob/main/Developer_Headshots.png)
+
 Should the need arise, feel free to contact the developers of this project for any sort of support!
 
 *Due to the rise of spam-bots scraping github, we have obfuscated emails. \[SCHOOL\] = gatech.edu and \[AT\] = @. Thank you for your understanding!*
