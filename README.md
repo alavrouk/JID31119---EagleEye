@@ -1,6 +1,39 @@
-# Eagle Eye
+# Eagle Eye: Advanced Route Planning Solution for US Air Force
 
-A machine learning solution for US Air Force route planning.
+Eagle Eye is an innovative machine learning solution designed to streamline route planning for the US Air Force. This project leverages advanced predictive models and optimization techniques to enhance operational efficiency and decision-making.
+
+## Key Features
+
+- **Predictive Analysis**: Utilizes SARIMA, LSTMs, and Neuralprophet models to generate accurate airfield utilization predictions.
+- **Optimization**: Implements linear programming optimization for effective route planning.
+- **Scalable Architecture**: Designed to seamlessly integrate with existing systems and scale according to operational demands.
+
+## Getting Started
+
+Follow these steps to set up the Eagle Eye environment on your machine:
+
+### Prerequisites
+
+- Python 3.10.8
+- Node.js and npm (for frontend setup)
+
+### Installation
+
+1. **Create a Conda Environment**:
+   ```shell
+   conda create --name eagle-eye python=3.10.8
+   conda activate eagle-eye
+2. **Install Python Dependencies:**
+   ```shell
+   pip install -r requirements.txt
+3. **Run the Backend Server:**
+   ```shell
+   python api_fastapi.py
+4. **Set Up the Frontend:**
+    ```shell
+    npm install
+    npm start
+
 
 ## Version 0.4.0
 ### New Features
