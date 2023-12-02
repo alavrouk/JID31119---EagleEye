@@ -1,6 +1,26 @@
 ![Eagle Eye Logo](https://github.com/alavrouk/jic3119-eagleeye/blob/main/EAGLE_EYE_logo.png)
 # Eagle Eye: Advanced Route Planning Solution for US Air Force
 
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Key Features](#key-features)
+3. [Getting Started](#getting-started)
+   - [Prerequisites](#prerequisites)
+   - [Installation](#installation)
+4. [Release Notes](#release-notes)
+   - [Version 1.0.0](#version-1.0.0)
+   - [Version 0.4.0](#version-0.4.0)
+   - [Version 0.3.0](#version-0.3.0)
+   - [Version 0.2.0](#version-0.2.0)
+   - [Version 0.1.0](#version-0.1.0)
+5. [Sprint Demo Videos](#sprint-demo-videos)
+   - [Sprint 2 Demo Video](#sprint-2)
+   - [Sprin5 3 Demo Video](#sprint-3)
+   - [Sprint 4 Demo Video](#sprint-4)
+   - [Sprint 5 Demo Video](#sprint-5)
+
+## Introduction
+
 Eagle Eye is an innovative machine learning solution designed to streamline route planning for the US Air Force. This project leverages advanced predictive models and optimization techniques to enhance operational efficiency and decision-making.
 
 ## Key Features
@@ -40,56 +60,57 @@ Follow these steps to set up the Eagle Eye environment on your machine:
     npm start
 6. **The front and backend should be running!**
 
+## Release Notes
 
-## Version 1.0.0
-### New Features
+### Version 1.0.0
+#### New Features
 - Built full-functioning linear programming optimizer for airfield balancing.
 - User ability to input their own supplies
 - Time matrix for different airfields in order to make optimization factually correct.
-### Bug Fixes
+#### Bug Fixes
 - Fixed bug where the route planning map was zoomed into a weird place in California on startup.
-### Known Issues
+#### Known Issues
 - Arrow formatting is not pleasant to look at in route planning.
 
-## Version 0.4.0
-### New Features
+### Version 0.4.0
+#### New Features
 - Linked up 3 time-series utilization models to front end - now results are graphed through FastAPI
 - Created a better map visualization using more modern tools
 - Linked linear programming based route planning to a table at the bottom of the route planning page.
-### Bug Fixes
+#### Bug Fixes
 - Fixed SARIMA bug where the resultant distribution would just be completely random
-### Known Issues
+#### Known Issues
 - Models are not tuned and thus do not represent final performance (but better tuned than last time)
 - neuralprophet model is trained on a different dataset and thus produces different results.
 
-## Version 0.3.0
-### New Features
+### Version 0.3.0
+#### New Features
 - Created three models for airfield utilization time series prediction
 - Created synthetic data generator to use in airfield utilization
 - Created linear programming instance for fleet route planning
-### Bug Fixes
+#### Bug Fixes
 - Fixed up bugs in the route planning visualization
-### Known Issues
+#### Known Issues
 - Models are not tuned and thus do not represent final performance
 
-## Version 0.2.0
-### New Features
+### Version 0.2.0
+#### New Features
 - Added business plot showing airfield ground clearance trends
 - Added a file drop page for uploading new aifrield data
 - Added flight route planning visualization in map component
-### Bug Fixes
+#### Bug Fixes
 - Modularized airfield and business data from their respective components
-### Known Issues
+#### Known Issues
 - Map view can be buggy rendering between frames
 
-## Version 0.1.0
-### New Features
+### Version 0.1.0
+#### New Features
 - Added Dropdown menu for Airfields
 - Added Map component for route planning
 - Created centralized dashboard for flight stats
-### Bug Fixes
+#### Bug Fixes
 - Refactored Artifact code to ensure variables were properly tracked across Dashboard tabs 
-### Known Issues
+#### Known Issues
 - Hardcoded airfield data
 
 ## 🎥 Sprint Demo Videos
