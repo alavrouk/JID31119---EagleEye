@@ -96,7 +96,7 @@ Follow these steps to set up the Eagle Eye environment on your machine:
 
 In each sprint of the Eagle Eye project, we've captured key developments and features through demo videos. These videos provide a visual overview of our progress and the functionalities implemented in each phase.
 
-### Sprint 2: [Initial Setup and Basic Functionality](#sprint-2-video)
+### Sprint 2: [Initial Frontend Build-up and Containerization](#sprint-2-video)
 
 <details>
 <summary>Watch Sprint 2 Demo</summary>
@@ -107,7 +107,7 @@ In each sprint of the Eagle Eye project, we've captured key developments and fea
 </p>
 </details>
 
-### Sprint 3: [Advanced Features and Improvements](#sprint-3-video)
+### Sprint 3: [Machine Learning Implementation Beginning](#sprint-3-video)
 
 <details>
 <summary>Watch Sprint 3 Demo</summary>
@@ -118,13 +118,13 @@ In each sprint of the Eagle Eye project, we've captured key developments and fea
 </p>
 </details>
 
-### Sprint 4: [Integration and Testing](#sprint-4-video)
+### Sprint 4: [Further Machine Learning Implementation](#sprint-4-video)
 
 <details>
 <summary>Watch Sprint 4 Demo</summary>
 <p>
 
-[![Sprint 4 Demo](http://img.youtube.com/vi/xF8RNkDrioID/0.jpg)](http://www.youtube.com/watch?v=xF8RNkDrioI)
+[![Sprint 4 Demo](http://img.youtube.com/vi/xF8RNkDrioI/0.jpg)](http://www.youtube.com/watch?v=xF8RNkDrioI)
 
 </p>
 </details>
