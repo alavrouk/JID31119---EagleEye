@@ -1,24 +1,6 @@
 ![Eagle Eye Logo](https://github.com/alavrouk/jic3119-eagleeye/blob/main/EAGLE_EYE_logo.png)
 # Eagle Eye: Advanced Route Planning Solution for US Air Force
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Key Features](#key-features)
-3. [Getting Started](#getting-started)
-   - [Prerequisites](#prerequisites)
-   - [Installation](#installation)
-4. [Release Notes](#release-notes)
-   - [Version 1.0.0](#version-1.0.0)
-   - [Version 0.4.0](#version-0.4.0)
-   - [Version 0.3.0](#version-0.3.0)
-   - [Version 0.2.0](#version-0.2.0)
-   - [Version 0.1.0](#version-0.1.0)
-5. [Sprint Demo Videos](#sprint-demo-videos)
-   - [Sprint 2 Demo Video](#sprint-2-video)
-   - [Sprint 3 Demo Video](#sprint-3-video)
-   - [Sprint 4 Demo Video](#sprint-4-video)
-   - [Sprint 5 Demo Video](#sprint-5-video)
-
 ## Introduction
 
 Eagle Eye is an innovative machine learning solution designed to streamline route planning for the US Air Force. This project leverages advanced predictive models and optimization techniques to enhance operational efficiency and decision-making.
