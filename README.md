@@ -1,26 +1,26 @@
 ![Eagle Eye Logo](https://github.com/alavrouk/jic3119-eagleeye/blob/main/EAGLE_EYE_logo.png)
 # Eagle Eye: Advanced Route Planning Solution for US Air Force
 
-## Introduction
+## ✈️ Introduction
 
 Eagle Eye is an innovative machine learning solution designed to streamline route planning for the US Air Force. This project leverages advanced predictive models and optimization techniques to enhance operational efficiency and decision-making.
 
-## Key Features
+## 🗝️ Key Features
 
 - **Predictive Analysis**: Utilizes SARIMA, LSTMs, and Neuralprophet models to generate accurate airfield utilization predictions.
 - **Optimization**: Implements linear programming optimization for effective route planning.
 - **Scalable Architecture**: Designed to seamlessly integrate with existing systems and scale according to operational demands.
 
-## Getting Started
+## 💻 Getting Started
 
 Follow these steps to set up the Eagle Eye environment on your machine:
 
-### Prerequisites
+### 💻 Prerequisites
 
 - Python 3.10.8 (for backend setup)
 - Node.js and npm (for frontend setup)
 
-### Installation
+### 💻 Installation
 
 1. **Create a Conda Environment**:
    ```shell
@@ -42,27 +42,17 @@ Follow these steps to set up the Eagle Eye environment on your machine:
     npm start
 6. **The front and backend should be running!**
 
-## Release Notes
+## ✍️ Release Notes 
 
-<div style="border: 2px solid #e1e4e8; padding: 16px; border-radius: 6px; background-color: #f6f8fa; margin-bottom: 16px;">
-    <h3 style="color: #0366d6; margin-top: 0;">Version 1.0.0</h3>
-    <h4 style="margin-bottom: 0;">New Features</h4>
-    <ul>
-        <li>Built full-functioning linear programming optimizer for airfield balancing.</li>
-        <li>User ability to input their own supplies.</li>
-        <li>Time matrix for different airfields to make optimization factually correct.</li>
-    </ul>
-    <h4 style="margin-bottom: 0;">Bug Fixes</h4>
-    <ul>
-        <li>Fixed bug where the route planning map was zoomed into a weird place in California on startup.</li>
-    </ul>
-    <h4 style="margin-bottom: 0;">Known Issues</h4>
-    <ul>
-        <li>Arrow formatting is not pleasant to look at in route planning.</li>
-    </ul>
-</div>
-
-
+### Version 1.0.0
+#### New Features
+- Built full-functioning linear programming optimizer for airfield balancing.
+- User ability to input their own supplies
+- Time matrix for different airfields in order to make optimization factually correct.
+#### Bug Fixes
+- Fixed bug where the route planning map was zoomed into a weird place in California on startup.
+#### Known Issues
+- Arrow formatting is not pleasant to look at in route planning.
 
 ### Version 0.4.0
 #### New Features
