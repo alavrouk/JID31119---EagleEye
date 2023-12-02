@@ -1,26 +1,24 @@
 ![Eagle Eye Logo](https://github.com/alavrouk/jic3119-eagleeye/blob/main/EAGLE_EYE_logo.png)
-# Eagle Eye: Advanced Route Planning Solution for US Air Force
-
-## ✈️ Introduction
+# ✈️ Introduction
 
 Eagle Eye is an innovative machine learning solution designed to streamline route planning for the US Air Force. This project leverages advanced predictive models and optimization techniques to enhance operational efficiency and decision-making.
 
-## 🗝️ Key Features
+# 🗝️ Key Features
 
 - **Predictive Analysis**: Utilizes SARIMA, LSTMs, and Neuralprophet models to generate accurate airfield utilization predictions.
 - **Optimization**: Implements linear programming optimization for effective route planning.
 - **Scalable Architecture**: Designed to seamlessly integrate with existing systems and scale according to operational demands.
 
-## 💻 Getting Started
+# 💻 Getting Started
 
 Follow these steps to set up the Eagle Eye environment on your machine:
 
-### Prerequisites
+## Prerequisites
 
 - Python 3.10.8 (for backend setup)
 - Node.js and npm (for frontend setup)
 
-### Installation
+## Installation
 
 1. **Create a Conda Environment**:
    ```shell
@@ -42,64 +40,64 @@ Follow these steps to set up the Eagle Eye environment on your machine:
     npm start
 6. **The front and backend should be running!**
 
-## ✍️ Release Notes 
+# ✍️ Release Notes 
 
-### Version 1.0.0
-#### New Features
+## Version 1.0.0
+### New Features
 - Built full-functioning linear programming optimizer for airfield balancing.
 - User ability to input their own supplies
 - Time matrix for different airfields in order to make optimization factually correct.
-#### Bug Fixes
+### Bug Fixes
 - Fixed bug where the route planning map was zoomed into a weird place in California on startup.
-#### Known Issues
+### Known Issues
 - Arrow formatting is not pleasant to look at in route planning.
 
-### Version 0.4.0
-#### New Features
+## Version 0.4.0
+### New Features
 - Linked up 3 time-series utilization models to front end - now results are graphed through FastAPI
 - Created a better map visualization using more modern tools
 - Linked linear programming based route planning to a table at the bottom of the route planning page.
-#### Bug Fixes
+### Bug Fixes
 - Fixed SARIMA bug where the resultant distribution would just be completely random
-#### Known Issues
+### Known Issues
 - Models are not tuned and thus do not represent final performance (but better tuned than last time)
 - neuralprophet model is trained on a different dataset and thus produces different results.
 
-### Version 0.3.0
-#### New Features
+## Version 0.3.0
+### New Features
 - Created three models for airfield utilization time series prediction
 - Created synthetic data generator to use in airfield utilization
 - Created linear programming instance for fleet route planning
-#### Bug Fixes
+### Bug Fixes
 - Fixed up bugs in the route planning visualization
-#### Known Issues
+### Known Issues
 - Models are not tuned and thus do not represent final performance
 
-### Version 0.2.0
-#### New Features
+## Version 0.2.0
+### New Features
 - Added business plot showing airfield ground clearance trends
 - Added a file drop page for uploading new aifrield data
 - Added flight route planning visualization in map component
-#### Bug Fixes
+### Bug Fixes
 - Modularized airfield and business data from their respective components
-#### Known Issues
+### Known Issues
 - Map view can be buggy rendering between frames
 
-### Version 0.1.0
-#### New Features
+## Version 0.1.0
+### New Features
 - Added Dropdown menu for Airfields
 - Added Map component for route planning
 - Created centralized dashboard for flight stats
-#### Bug Fixes
+### Bug Fixes
 - Refactored Artifact code to ensure variables were properly tracked across Dashboard tabs 
-#### Known Issues
+### Known Issues
 - Hardcoded airfield data
 
-## 🎥 Sprint Demo Videos
+# 🎥 Sprint Demo Videos
 
 In each sprint of the Eagle Eye project, we've captured key developments and features through demo videos. These videos provide a visual overview of our progress and the functionalities implemented in each phase.
 
-### Sprint 2: [Initial Frontend Build-up and Containerization](#sprint-2-video)
+## Sprint 2: [Initial Frontend Build-up and Containerization](#sprint-2-video)
 
 <details>
 <summary>Watch Sprint 2 Demo</summary>
@@ -110,7 +108,7 @@ In each sprint of the Eagle Eye project, we've captured key developments and fea
 </p>
 </details>
 
-### Sprint 3: [Machine Learning Implementation Beginning](#sprint-3-video)
+## Sprint 3: [Machine Learning Implementation Beginning](#sprint-3-video)
 
 <details>
 <summary>Watch Sprint 3 Demo</summary>
@@ -121,7 +119,7 @@ In each sprint of the Eagle Eye project, we've captured key developments and fea
 </p>
 </details>
 
-### Sprint 4: [Further Machine Learning Implementation](#sprint-4-video)
+## Sprint 4: [Further Machine Learning Implementation](#sprint-4-video)
 
 <details>
 <summary>Watch Sprint 4 Demo</summary>
@@ -132,7 +130,7 @@ In each sprint of the Eagle Eye project, we've captured key developments and fea
 </p>
 </details>
 
-### Sprint 5: [Finalization and Deployment](#sprint-5-video)
+## Sprint 5: [Finalization and Deployment](#sprint-5-video)
 
 <details>
 <summary>Watch Sprint 5 Demo (will be here in a few days)</summary>
@@ -149,24 +147,24 @@ In each sprint of the Eagle Eye project, we've captured key developments and fea
 
 Enjoy watching the journey of Eagle Eye from conception to completion!
 
-## 📫 Contact Us
+# 📫 Contact Us
 
 Should the need arise, feel free to contact the developers of this project for any sort of support!
-SCHOOL = gatech.edu
 
-### Anton Lavrouk
+Due to the rise of spam-bots scraping github, we have obfuscated emails. \[SCHOOL\] = gatech.edu and \[@\] = @. Thank you for your understanding!
+
+## Anton Lavrouk
 - antonlavrouk\[AT\]\[SCHOOL\]
 - [LinkedIn](https://www.linkedin.com/in/alavrouk/)
-### Ivan Zapote
+## Ivan Zapote
 - izapote3\[AT\]\[SCHOOL\]
 - [LinkedIn](https://www.linkedin.com/in/ivan-zapote/)
-### Azhan Khan
+## Azhan Khan
 - azkhan\[AT\]\[SCHOOL\]
 - [LinkedIn](https://www.linkedin.com/in/azhank/)
-### Eric Vela
+## Eric Vela
 - ehernandez83\[AT\]\[SCHOOL\]
 - [LinkedIn](https://www.linkedin.com/in/eric-vela/)
-### David Schmidt
+## David Schmidt
 - dschmidt44\[AT\]\[SCHOOL\]
 - [LinkedIn](https://www.linkedin.com/in/david-schmidt3/)
-
